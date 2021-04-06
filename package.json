@@ -1,0 +1,15 @@
+{
+  "name": "labelbot",
+  "version": "1.0.0",
+  "author": "GooseMooz",
+  "scripts": {
+    "start": "nodemon"
+  },
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "nodemon": "^2.0.7",
+    "spotify-web-api-node": "^5.0.2",
+    "vk-io": "^4.1.4"
+  },
+  "type": "module"
+}
