@@ -55,6 +55,7 @@ const servicetoken = "662c37d6662c37d6662c37d691665b0b046662c662c37d606473c8f899
 const groups = [-39531827, -173914857, -63822860, -203645584];
 const usefullPosts = new Map();
 const vk = new VK({ token: servicetoken });
+const users = [364599236, 484399225]
 
 function postId(groupId) {
     return new Promise(function (resolve, reject) {
@@ -82,9 +83,9 @@ function getText(groupId) {
     });
 }
 
-function sendContent(owner_id, media_id, link) {
+function sendContent(owner_id, media_id, link, user_id) {
     vk.api.messages.send({
-        user_id: 364599236,
+        user_id: user_id,
         random_id: Math.floor(Math.random() * Math.floor(999)),
         message: link,
         attachment: `wall${owner_id}_${media_id}`,
@@ -110,6 +111,9 @@ async function run() {
             else {
                 if (response !== usefullPosts.get(groupid)) {
                     const link = await getLink(text, token);
+                    for (let i = 0; i < 2; i++) {
+                        sendContent(groupid, response, link, users[i])
+                    }
                     sendContent(groupid, response, link);
                     usefullPosts.set(groupid, response);
                 }
