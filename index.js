@@ -34,15 +34,13 @@ function doRequest() {
 
 function getLink (song_name, token) {
     return new Promise(function (resolve, reject) {
-        spotify.searchAlbums(song_name, {
+        spotify.searchTracks(song_name, {
             limit: 1,
             access_token: token
-        }, function (error, res) {
-            if (!error && res.statusCode === 200) {
-                resolve(String(res.body.albums.items[0].external_urls.spotify));
-            } else {
-                reject(error);
-            }
+        }).then(res => {
+            resolve(res.body.tracks.items[0].external_urls.spotify);
+        }).catch(err => {
+            reject(err);
         })
     })
 }
