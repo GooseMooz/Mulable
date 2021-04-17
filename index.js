@@ -32,13 +32,22 @@ function doRequest() {
     });
 }
 
+function checkBody (response) {
+    if (response.body.albums.items[0] === undefined) {
+        return "Not found, sorry :c"
+    }
+    else {
+        return String(response.body.albums.items[0].external_urls.spotify)
+    }
+}
+
 function getLink (song_name, token) {
     return new Promise(function (resolve, reject) {
-        spotify.searchTracks(song_name, {
+        spotify.searchAlbums(song_name, {
             limit: 1,
             access_token: token
         }).then(res => {
-            resolve(res.body.tracks.items[0].external_urls.spotify);
+            resolve(checkBody(res));
         }).catch(err => {
             reject(err);
         })
