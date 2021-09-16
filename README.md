@@ -1,2 +1,2 @@
 # Mulable
-Bot about getting content from few labels.
+Bot that sends you new releases from label's VK groups.
