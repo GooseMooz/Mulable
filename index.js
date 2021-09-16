@@ -8,7 +8,7 @@ import request from 'request';
 import SpotifyWebApi from 'spotify-web-api-node';
 const spotify = new SpotifyWebApi();
 const spotify_url = "https://accounts.spotify.com/api/token";
-const authorizationCode = "ZmNiZmVhYjFhNDMzNDBmMjkwYzY2OWQ4M2ZmYWViNDU6N2NjMzg5NjcyZWQ3NDQ3ZDg1MmVmYjJjYjRlOWRhMjg=";
+const authorizationCode = "";
 const options = {
     method: 'POST',
     uri: spotify_url,
@@ -57,12 +57,12 @@ function getLink (song_name, token) {
 
 /// VK
 import {VK} from 'vk-io';
-const grouptoken = "cc11cc0601ec8a27f6a225dd8f7d8942888c038176d8ba4362820de14fe50d56a6bf56c0a8472fe70ab37";
-const servicetoken = "662c37d6662c37d6662c37d691665b0b046662c662c37d606473c8f899acd11edcdac5b";
-const groups = [-39531827, -173914857, -63822860, -203645584];
+const grouptoken = "";
+const servicetoken = "";
+const groups = [];
 const usefullPosts = new Map();
 const vk = new VK({ token: servicetoken });
-const users = [364599236, 484399225]
+const users = []
 
 function postId(groupId) {
     return new Promise(function (resolve, reject) {
